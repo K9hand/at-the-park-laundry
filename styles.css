@@ -73,7 +73,7 @@ a:focus-visible {
 .page-shell {
   max-width: 1200px;
   margin: 0 auto;
-  padding: var(--space-xl) var(--space-lg) 72px;
+  padding: clamp(18px, 3vw, 28px) clamp(16px, 3vw, 24px) 72px;
   position: relative;
 }
 
@@ -228,10 +228,14 @@ button:disabled {
 /* ===== HERO SECTION ===== */
 
 .hero {
-  margin-top: var(--space-xl);
-  padding: 20px 0 var(--space-xl);
+  margin-top: clamp(18px, 3vw, var(--space-xl));
+  padding: clamp(18px, 3vw, 28px);
   position: relative;
   overflow: hidden;
+  border-radius: calc(var(--radius) + 10px);
+  background: rgba(255, 255, 255, 0.58);
+  border: 1px solid rgba(28, 126, 214, 0.12);
+  box-shadow: var(--shadow);
 }
 
 .hero::before,
@@ -247,16 +251,16 @@ button:disabled {
   width: 320px;
   height: 320px;
   background: #c7e9ff;
-  top: 0;
-  right: -40px;
+  top: -40px;
+  right: -80px;
 }
 
 .hero::after {
   width: 320px;
   height: 320px;
   background: #c8fff7;
-  bottom: -80px;
-  left: -60px;
+  bottom: -120px;
+  left: -120px;
 }
 
 .hero .pill {
@@ -274,9 +278,16 @@ button:disabled {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: var(--space-xl);
-  align-items: start;
+  align-items: center;
   position: relative;
   z-index: 1;
+}
+
+@media (min-width: 920px) {
+  .hero-grid {
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 40px;
+  }
 }
 
 .hero-copy {
@@ -291,6 +302,7 @@ button:disabled {
   --carousel-controls-safe: 64px;
   border-radius: 22px;
   overflow: hidden;
+  border: 1px solid rgba(255, 122, 89, 0.14);
   box-shadow: 0 24px 60px rgba(17, 24, 39, 0.32);
   background: transparent;
   isolation: isolate;
@@ -467,6 +479,8 @@ button:disabled {
 
 .hero-copy h1 {
   font-size: clamp(32px, 5vw, 46px);
+  line-height: 1.06;
+  max-width: 18ch;
   margin-bottom: var(--space-sm);
 }
 
@@ -476,6 +490,7 @@ button:disabled {
 
 .hero-copy p {
   font-size: 18px;
+  max-width: 54ch;
 }
 
 .cta-row {
@@ -490,6 +505,7 @@ button:disabled {
   display: flex;
   gap: var(--space-sm);
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .avatar-stack {
@@ -1092,8 +1108,8 @@ select {
   position: absolute;
   width: 160px;
   height: 160px;
-  right: 4%;
-  bottom: 8%;
+  right: var(--space-md);
+  bottom: var(--space-md);
   background-image: radial-gradient(#b7d7ff 2px, transparent 2px);
   background-size: 16px 16px;
   opacity: 0.5;
