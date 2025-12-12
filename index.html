@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>At the Park Laundry</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="top-nav">
+      <div class="brand">
+        <div class="brand-mark">P</div>
+        <div>
+          <div class="brand-name">Park Laundry</div>
+          <div class="brand-sub">Wash | Fold | Iron</div>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#process">How it works</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#location">Location</a>
+        <a href="#testimonials">Reviews</a>
+        <a href="#contact" class="ghost">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="ghost mobile-hide" href="tel:+19175551212">Call (917) 555-1212</a>
+        <a class="cta" href="#contact">Book a load</a>
+        <button class="burger" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      <div class="mobile-menu">
+        <a href="#services">Services</a>
+        <a href="#process">How it works</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#location">Location</a>
+        <a href="#testimonials">Reviews</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <h1>Spotless laundry, <span>ready to collect.</span></h1>
+            <p>At the Park Laundry keeps your week moving with precise cleaning, careful folding, and crisp finishing. Drop off in the morning, collect after work.</p>
+            <div class="cta-row">
+              <a class="cta" href="#contact">Book a load</a>
+              <button class="ghost" id="call-btn">WhatsApp the team</button>
+            </div>
+          </div>
+          <div class="hero-carousel" aria-label="Laundry highlights carousel">
+            <div class="carousel-track">
+              <figure class="slide active">
+                <img src="Customer%20picking%20up%20.png" alt="Customer collecting neatly folded laundry at the counter.">
+              </figure>
+              <figure class="slide">
+                <img src="Interior%20of%20a%20drop-o.png" alt="Interior of At the Park Laundry drop-off with machines running.">
+                <figcaption>Commercial-grade cleaning with eco detergents.</figcaption>
+              </figure>
+              <figure class="slide">
+                <img src="Exterior%20of%20a%20drop-o.png" alt="Exterior of At the Park Laundry drop-off location.">
+                <figcaption>Freshly wrapped and ready for collection.</figcaption>
+              </figure>
+            </div>
+            <div class="carousel-overlay">
+              <div class="overlay-stats">
+              </div>
+              <div class="carousel-controls">
+                <button type="button" class="ghost icon carousel-control prev" aria-label="Previous photo">&#8592;</button>
+                <div class="carousel-dots" role="tablist">
+                  <button type="button" class="dot active" aria-label="Show first photo" data-index="0"></button>
+                  <button type="button" class="dot" aria-label="Show second photo" data-index="1"></button>
+                  <button type="button" class="dot" aria-label="Show third photo" data-index="2"></button>
+                </div>
+                <button type="button" class="ghost icon carousel-control next" aria-label="Next photo">&#8594;</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-dots"></div>
+      </section>
+
+      <section id="services" class="section">
+        <div class="section-header">
+          <p class="eyebrow">Services built for busy weeks</p>
+          <h2>Clean clothes without the chore list.</h2>
+        </div>
+        <div class="card-grid">
+          <article class="service-card">
+            <div class="icon-badge">WF</div>
+            <h3>Wash & fold</h3>
+            <p>Sorted, spot-treated, washed at precise temps, and folded into tidy stacks that slide straight into drawers.</p>
+            <ul>
+              <li>Hypoallergenic & eco detergents</li>
+              <li>Custom water temp & softener notes</li>
+              <li>Delicates hang-dried on racks</li>
+            </ul>
+          </article>
+          <article class="service-card">
+            <div class="icon-badge">PR</div>
+            <h3>Pressed & finished</h3>
+            <p>Shirts, trousers, linens, and uniforms finished with crisp, professional pressing and steam finishing.</p>
+            <ul>
+              <li>Next-day shirts & uniforms</li>
+              <li>Starch levels to your preference</li>
+              <li>On-hanger or folded for collection</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="process" class="section alt">
+        <div class="section-header">
+          <p class="eyebrow">Simple three-step flow</p>
+          <h2>From hamper to home in a day.</h2>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="step">1</div>
+            <div>
+              <h3>Drop off</h3>
+              <p>Pick your time and add any fabric notes. We tag and log your garments on arrival.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="step">2</div>
+            <div>
+              <h3>Clean & care</h3>
+              <p>We sort by color and fabric, pre-treat stains, and use commercial-grade Electrolux machines.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="step">3</div>
+            <div>
+              <h3>Collect</h3>
+              <p>Folded stacks, wrapped to stay fresh. Hang-dry items return on wooden hangers, not flimsy wire.</p>
+            </div>
+          </div>
+        </div>
+        <div class="metrics">
+          <div>
+            <div class="metric-number">99.2%</div>
+            <p class="metric-label">On-time collection ready</p>
+          </div>
+          <div>
+            <div class="metric-number">24/7</div>
+            <p class="metric-label">Text updates and support</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section split">
+        <div class="image-tile">
+          <div class="tile-overlay">
+            <p class="eyebrow">Eco detergents</p>
+            <h3>Clothes that feel as good as they look.</h3>
+            <p>We keep skin-safe, planet-friendly detergents in rotation and store your preferences so your laundry always feels right.</p>
+          </div>
+        </div>
+        <div class="list-tile">
+          <h2>Why neighbors stay with us</h2>
+          <ul class="checklist">
+            <li>
+              <span class="check">&#10003;</span>
+              <div>
+                <p class="item-title">Neatly folded, ready to put away</p>
+                <p class="item-sub">Stacks sized for drawers with clear labeling for kids, bedding, and delicates.</p>
+              </div>
+            </li>
+            <li>
+              <span class="check">&#10003;</span>
+              <div>
+                <p class="item-title">No mystery stains left behind</p>
+                <p class="item-sub">We pre-treat spots and message you if a garment needs special attention.</p>
+              </div>
+            </li>
+            <li>
+              <span class="check">&#10003;</span>
+              <div>
+                <p class="item-title">Respectful, friendly team</p>
+                <p class="item-sub">Uniformed counter staff with background checks and clear handoff notes.</p>
+              </div>
+            </li>
+            <li>
+              <span class="check">&#10003;</span>
+              <div>
+                <p class="item-title">Transparent pricing</p>
+                <p class="item-sub">No surprise fees; you approve every add-on before we start cleaning.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="pricing" class="section">
+        <div class="section-header">
+          <p class="eyebrow">Clear pricing</p>
+          <h2>Bloemfontein-ready rates (incl. VAT).</h2>
+        </div>
+        <div class="pricing-grid">
+          <div class="price-card">
+            <div class="icon-badge">KG</div>
+            <p class="eyebrow">Per kg services</p>
+            <h3>Everyday laundry</h3>
+            <ul class="price-list">
+              <li><span>Wash, dry and iron</span><strong>R37 / kg</strong></li>
+              <li><span>Wash and dry</span><strong>R35 / kg</strong></li>
+              <li><span>Wash only</span><strong>R30 / kg</strong></li>
+              <li><span>Iron only</span><strong>R33 / kg</strong></li>
+            </ul>
+            <a class="cta ghost" href="#contact">Book a wash</a>
+          </div>
+          <div class="price-card featured">
+            <div class="tag accent">Popular</div>
+            <div class="icon-badge">BL</div>
+            <p class="eyebrow">Specialty items</p>
+            <h3>Care for bulky items</h3>
+            <ul class="price-list">
+              <li><span>Big fleece</span><strong>R80 each</strong></li>
+              <li><span>Small fleece</span><strong>R60 each</strong></li>
+              <li><span>Smaller fleece</span><strong>Weighed with wash</strong></li>
+              <li><span>Single blanket</span><strong>R130</strong></li>
+              <li><span>Double light blanket</span><strong>R160</strong></li>
+              <li><span>Double heavy blanket</span><strong>R190</strong></li>
+              <li><span>Sleeping bags</span><strong>R100</strong></li>
+              <li><span>Jacket alone</span><strong>R50</strong></li>
+            </ul>
+            <a class="cta" href="#contact">Schedule service</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="location" class="section alt">
+        <div class="section-header">
+          <p class="eyebrow">Find us</p>
+          <h2>At the Park, Bloemfontein</h2>
+          <p>At the Park Centre, 22 Dirk Opperman, Langenhovenpark, Bloemfontein, Free State.</p>
+        </div>
+        <div class="map-grid">
+          <div class="map-card">
+            <iframe
+              title="At the Park Laundry, Langenhovenpark, Bloemfontein"
+              class="map-embed"
+              loading="lazy"
+              allowfullscreen
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=At%20the%20Park%20Centre%2C%2022%20Dirk%20Opperman%2C%20Langenhovenpark%2C%20Bloemfontein%2C%20South%20Africa&output=embed">
+            </iframe>
+          </div>
+          <div class="map-details">
+            <h3>Directions & contact</h3>
+            <ul>
+              <li>At the Park Centre, 22 Dirk Opperman, Langenhovenpark, Bloemfontein, Free State</li>
+              <li>Ground / lower level entrance</li>
+              <li>Easy parking in centre lot</li>
+            </ul>
+            <p class="small-print">Need help? Call and we'll guide you.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="testimonials" class="section alt">
+        <div class="section-header">
+          <p class="eyebrow">Neighborhood-approved</p>
+          <h2>Reviews from regulars.</h2>
+        </div>
+        <div class="testimonial-grid">
+          <article class="testimonial">
+            <div class="quote-mark">"</div>
+            <p>Park Laundry is my Sunday hack. I leave the bag on the porch before brunch, it's back folded by dinner. Zero effort.</p>
+            <div class="author">
+              <span class="avatar">J</span>
+              <div>
+                <p class="item-title">Jamie - Prospect Heights</p>
+                <p class="item-sub">Weekly wash & fold</p>
+              </div>
+            </div>
+          </article>
+          <article class="testimonial">
+            <div class="quote-mark">"</div>
+            <p>The rush service saved me before a work trip. Shirts were crisp, no stray threads, and they texted updates along the way.</p>
+            <div class="author">
+              <span class="avatar">M</span>
+              <div>
+                <p class="item-title">Marcos - Flatbush</p>
+                <p class="item-sub">Rush press & finish</p>
+              </div>
+            </div>
+          </article>
+          <article class="testimonial">
+            <div class="quote-mark">"</div>
+            <p>I'm picky about detergent. They keep my preferences on file and even label my kid's clothes by size. Huge time saver.</p>
+            <div class="author">
+              <span class="avatar">T</span>
+              <div>
+                <p class="item-title">Taylor - Park Slope</p>
+                <p class="item-sub">Family plan</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" class="section cta-section">
+        <div class="cta-card">
+          <div>
+            <p class="eyebrow">Ready when you are</p>
+            <h2>Book a wash or ask a question.</h2>
+            <p>Tell us your address (for slips), preferred collection window, and any detergent or folding notes. We confirm in minutes.</p>
+          </div>
+          <form class="cta-form">
+            <div class="form-grid">
+              <label>
+                Name
+                <input type="text" name="name" placeholder="Your name" required>
+              </label>
+              <label>
+                Phone
+                <input type="tel" name="phone" placeholder="(917) 555-1212" required>
+              </label>
+              <label class="full">
+                Address
+                <input type="text" name="address" placeholder="123 Parkside Ave, Apt 2B" required>
+              </label>
+              <label>
+                Collection window
+                <select name="window" required>
+                  <option>Today - 4-6 PM</option>
+                  <option>Today - 6-8 PM</option>
+                  <option>Tomorrow - 8-10 AM</option>
+                  <option>Tomorrow - 6-8 PM</option>
+                </select>
+              </label>
+              <label>
+                Service
+                <select name="service" required>
+                  <option>Wash & fold</option>
+                  <option>Rush (same-day)</option>
+                  <option>Press & finish</option>
+                  <option>Commercial / bulk</option>
+                </select>
+              </label>
+              <label class="full">
+                Notes
+                <textarea name="notes" rows="3" placeholder="Detergent preferences, gate code, folding notes..."></textarea>
+              </label>
+            </div>
+            <button type="submit" class="cta full">Submit request</button>
+            <p class="small-print">Prefer to call? Ring us at (917) 555-1212 - Open daily 7am - 9pm</p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-brand">
+        <div class="brand-mark">P</div>
+        <div>
+          <div class="brand-name">At the Park Laundry</div>
+          <p class="brand-sub">Locally owned | Open 7 days a week</p>
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="#services">Services</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#location">Location</a>
+        <a href="#testimonials">Reviews</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-contact">
+        <p>(917) 555-1212</p>
+        <p>123 Parkside Ave, Brooklyn</p>
+        <p><a href="mailto:hello@parklaundry.com">hello@parklaundry.com</a></p>
+      </div>
+    </footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
