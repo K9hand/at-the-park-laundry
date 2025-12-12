@@ -276,7 +276,7 @@ button:disabled {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
   gap: var(--space-xl);
   align-items: center;
   position: relative;
@@ -437,7 +437,7 @@ button:disabled {
 
 .map-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
   gap: 16px;
   align-items: stretch;
 }
@@ -715,7 +715,7 @@ button:disabled {
 
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
   gap: var(--space-md);
 }
 
@@ -823,7 +823,7 @@ button:disabled {
 
 .split {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
   gap: 20px;
   align-items: stretch;
 }
@@ -907,7 +907,7 @@ button:disabled {
 
 .pricing-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
   gap: var(--space-md);
 }
 
@@ -954,7 +954,7 @@ button:disabled {
 
 .testimonial-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
   gap: var(--space-md);
 }
 
@@ -982,7 +982,7 @@ button:disabled {
   border-radius: 20px;
   padding: 26px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
   gap: 22px;
   position: relative;
   overflow: hidden;
@@ -1078,7 +1078,7 @@ select {
   padding: var(--space-lg) 0;
   border-top: 1px solid rgba(28, 126, 214, 0.12);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
   gap: var(--space-sm);
   align-items: center;
   color: var(--muted);
