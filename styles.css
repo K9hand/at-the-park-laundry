@@ -1196,7 +1196,7 @@ select {
 
   .hero-carousel {
     min-height: 240px;
-    --carousel-controls-safe: 52px;
+    --carousel-controls-safe: 86px;
     border-radius: 18px;
     box-shadow: 0 18px 46px rgba(15, 23, 42, 0.22);
   }
@@ -1211,11 +1211,24 @@ select {
   }
 
   .carousel-controls {
+    left: 12px;
+    right: 12px;
+    transform: none;
     bottom: 10px;
-    padding: 6px 10px;
+    padding: 8px 10px;
     border-radius: 14px;
     gap: 10px;
-    max-width: calc(100% - 24px);
+    max-width: none;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .carousel-control.prev {
+    order: 1;
+  }
+
+  .carousel-control.next {
+    order: 2;
   }
 
   .carousel-control.icon {
@@ -1225,7 +1238,10 @@ select {
   }
 
   .carousel-dots {
+    order: 3;
+    flex-basis: 100%;
     gap: 6px;
+    justify-content: center;
   }
 
   .dot {
