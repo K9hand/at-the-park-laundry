@@ -1221,7 +1221,7 @@ select {
     min-height: 40px;
   }
 
-  .brand-sub {
+  .top-nav .brand-sub {
     display: none;
   }
 
@@ -1238,27 +1238,29 @@ select {
   }
 
   .slide figcaption {
-    left: 12px;
-    right: 12px;
-    max-width: none;
+    left: 50%;
+    right: auto;
+    max-width: 280px;
+    transform: translateX(-50%);
     padding: 8px 10px;
     font-size: 13px;
     bottom: calc(10px + var(--carousel-controls-safe));
+    z-index: 6; /* keep captions above controls */
   }
 
   .carousel-controls {
-    left: 12px;
-    right: 12px;
+    left: 0;
+    right: 0;
     transform: none;
     bottom: 10px;
-    padding: 8px 10px;
+    padding: 0;
     border-radius: 14px;
     gap: 10px;
     max-width: none;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
-    background: rgba(255,255,255,0.64);
-    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+    background: transparent; /* remove the large card-like overlay */
+    box-shadow: none;
   }
 
   .carousel-control.prev {
@@ -1273,6 +1275,10 @@ select {
     width: 36px;
     height: 36px;
     font-size: 16px;
+    background: rgba(11, 18, 32, 0.62);
+    color: #fff;
+    border: none;
+    box-shadow: 0 6px 18px rgba(11, 18, 32, 0.18);
   }
 
   .carousel-dots {
@@ -1280,6 +1286,37 @@ select {
     flex-basis: 100%;
     gap: 6px;
     justify-content: center;
+  }
+
+  /* Put arrow icons on the sides of the carousel to avoid overlapping caption */
+  .carousel-control.prev {
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5; /* below caption */
+    width: 44px;
+    height: 44px;
+  }
+
+  .carousel-control.next {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5; /* below caption */
+    width: 44px;
+    height: 44px;
+  }
+
+  /* Dots remain centered at the bottom */
+  .carousel-dots {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 8px;
+    z-index: 4;
+    display: flex;
   }
 
   .dot {
