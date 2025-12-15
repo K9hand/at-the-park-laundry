@@ -940,15 +940,17 @@ button:disabled {
   position: absolute;
   bottom: 18px;
   left: 18px;
-  width: 140px;
-  height: 140px;
+  width: 180px;
+  height: 180px;
   background-repeat: no-repeat;
   background-size: contain;
   pointer-events: none;
-  opacity: 0.14;
-  transform: translateY(6px);
-  filter: saturate(1.05) blur(0.2px);
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'><rect rx='12' x='5' y='5' width='110' height='100' fill='%23f4e6da'/><rect x='12' y='12' rx='8' width='44' height='18' fill='%23d7ecff'/><circle cx='65' cy='60' r='30' fill='%23ffffff' opacity='0.98' stroke='%23d7ecff' stroke-width='4'/><circle cx='65' cy='60' r='18' fill='%23c97857' opacity='0.18'/><circle cx='65' cy='60' r='9' fill='%23c97857' opacity='0.28'/></svg>");
+  opacity: 0.22;
+  transform: none;
+  filter: none;
+  z-index: 0;
+  background-position: left bottom;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 140'><defs><linearGradient id='g' x1='0' x2='1'><stop offset='0' stop-color='%23f4e6da'/><stop offset='1' stop-color='%23d7ecff'/></linearGradient></defs><rect rx='14' x='6' y='6' width='128' height='128' fill='url(%23g)'/><rect x='14' y='14' rx='6' width='56' height='20' fill='%23d7ecff'/><circle cx='88' cy='80' r='34' fill='%23ffffff' stroke='%23d7ecff' stroke-width='4'/><circle cx='88' cy='80' r='18' fill='%234f79d9' opacity='0.95'/><circle cx='110' cy='44' r='6' fill='%23f4e6da' opacity='0.95'/><circle cx='120' cy='54' r='4' fill='%23f4e6da' opacity='0.95'/></svg>");
 }
 
 .price-card .cta.full {
