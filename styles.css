@@ -939,17 +939,17 @@ button:disabled {
   content: '';
   position: absolute;
   bottom: 18px;
-  left: 18px;
+  left: 50%;
   width: 180px;
   height: 180px;
   background-repeat: no-repeat;
   background-size: contain;
   pointer-events: none;
   opacity: 0.22;
-  transform: none;
+  transform: translateX(-50%);
   filter: none;
   z-index: 0;
-  background-position: left bottom;
+  background-position: center bottom;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 140'><defs><linearGradient id='g' x1='0' x2='1'><stop offset='0' stop-color='%23f4e6da'/><stop offset='1' stop-color='%23d7ecff'/></linearGradient></defs><rect rx='14' x='6' y='6' width='128' height='128' fill='url(%23g)'/><rect x='14' y='14' rx='6' width='56' height='20' fill='%23d7ecff'/><circle cx='88' cy='80' r='34' fill='%23ffffff' stroke='%23d7ecff' stroke-width='4'/><circle cx='88' cy='80' r='18' fill='%234f79d9' opacity='0.95'/><circle cx='110' cy='44' r='6' fill='%23f4e6da' opacity='0.95'/><circle cx='120' cy='54' r='4' fill='%23f4e6da' opacity='0.95'/></svg>");
 }
 
