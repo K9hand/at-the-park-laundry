@@ -934,6 +934,23 @@ button:disabled {
   padding-bottom: 12px;
 }
 
+/* Decorative washing machine in the lower white space of non-featured price cards */
+.price-card:not(.featured)::before {
+  content: '';
+  position: absolute;
+  bottom: 18px;
+  left: 18px;
+  width: 140px;
+  height: 140px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  pointer-events: none;
+  opacity: 0.14;
+  transform: translateY(6px);
+  filter: saturate(1.05) blur(0.2px);
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'><rect rx='12' x='5' y='5' width='110' height='100' fill='%23f4e6da'/><rect x='12' y='12' rx='8' width='44' height='18' fill='%23d7ecff'/><circle cx='65' cy='60' r='30' fill='%23ffffff' opacity='0.98' stroke='%23d7ecff' stroke-width='4'/><circle cx='65' cy='60' r='18' fill='%23c97857' opacity='0.18'/><circle cx='65' cy='60' r='9' fill='%23c97857' opacity='0.28'/></svg>");
+}
+
 .price-card .cta.full {
   display: block;
   width: 100%;
