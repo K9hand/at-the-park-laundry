@@ -167,6 +167,7 @@ if (carouselToggle) {
     userPaused = true;
     carouselToggle.setAttribute('aria-pressed', 'true');
     carouselToggle.textContent = 'Play';
+    carouselToggle.setAttribute('aria-label', 'Play carousel');
   }
   carouselToggle.addEventListener('click', () => {
     const pressed = carouselToggle.getAttribute('aria-pressed') === 'true';
@@ -175,11 +176,13 @@ if (carouselToggle) {
       userPaused = false;
       carouselToggle.setAttribute('aria-pressed', 'false');
       carouselToggle.textContent = 'Pause';
+      carouselToggle.setAttribute('aria-label', 'Pause carousel');
       startCarousel();
     } else {
       userPaused = true;
       carouselToggle.setAttribute('aria-pressed', 'true');
       carouselToggle.textContent = 'Play';
+      carouselToggle.setAttribute('aria-label', 'Play carousel');
       stopCarousel();
     }
   });
