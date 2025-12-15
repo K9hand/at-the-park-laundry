@@ -30,6 +30,7 @@
       <div class="nav-actions">
         <a class="ghost mobile-hide" href="tel:+19175551212">Call (917) 555-1212</a>
         <a class="cta" href="#contact">Book a load</a>
+        <button class="chatbot-nav-toggle" aria-label="Open assistant" title="Assistant">🤖</button>
         <button class="burger" aria-label="Toggle navigation">
           <span></span>
           <span></span>
@@ -362,6 +363,31 @@
         </div>
       </section>
     </main>
+
+    <!-- Simple FAQ Chatbot widget -->
+    <div class="chatbot" aria-hidden="false">
+      <button class="chatbot-toggle" aria-label="Open chat" aria-expanded="false" title="Open chat (drag to reposition)">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M20 2H4a2 2 0 0 0-2 2v14l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"/></svg>
+        <span class="sr-only">Open chat</span>
+      </button>
+      <div class="chatbot-panel" role="dialog" aria-label="Site assistant" aria-hidden="true">
+        <header class="chatbot-header">
+          <strong>Park Laundry Assistant</strong>
+          <button class="chatbot-close" aria-label="Close chat">✕</button>
+        </header>
+        <div class="chatbot-body" role="log" aria-live="polite"></div>
+        <div class="chatbot-suggestions">
+          <button data-suggest="hours">Hours</button>
+          <button data-suggest="pricing">Pricing estimate</button>
+          <button data-suggest="book">Book a load</button>
+          <button data-suggest="contact">Contact details</button>
+        </div>
+        <form class="chatbot-form" aria-label="Chat input">
+          <input type="text" class="chatbot-input" placeholder="Ask about hours, pricing, or booking…" aria-label="Type a message" />
+          <button type="submit" class="chatbot-send" aria-label="Send">Send</button>
+        </form>
+      </div>
+    </div>
 
     <footer class="footer">
       <div class="footer-brand">

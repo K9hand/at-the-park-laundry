@@ -201,6 +201,7 @@ const chatBody = document.querySelector('.chatbot-body');
 const chatForm = document.querySelector('.chatbot-form');
 const chatInput = document.querySelector('.chatbot-input');
 const chatSuggests = document.querySelectorAll('.chatbot-suggestions button');
+const chatNavToggle = document.querySelector('.chatbot-nav-toggle');
 
 const rates = { wash_dry_iron: 37, wash_dry: 35, wash_only: 30, iron_only: 33 };
 
@@ -227,6 +228,9 @@ function closeChat(){
 
 if(chatToggle && chatPanel){
   chatToggle.addEventListener('click', ()=>{ if(chatPanel.getAttribute('aria-hidden')==='false') closeChat(); else openChat(); });
+}
+if(chatNavToggle && chatPanel){
+  chatNavToggle.addEventListener('click', ()=>{ if(chatPanel.getAttribute('aria-hidden')==='false') closeChat(); else openChat(); });
 }
 if(chatClose){ chatClose.addEventListener('click', closeChat); }
 
@@ -326,4 +330,25 @@ if (chatWidget && pageFooter && 'IntersectionObserver' in window) {
       chatWidget.style.bottom = '';
     }
   });
+}
+
+// If the chatbot is positioned at top (nav) we don't need to move it when footer is visible
+// Ensure the footer observer only acts when chatbot uses bottom positioning (legacy floating)
+if (chatWidget && pageFooter && 'IntersectionObserver' in window) {
+  const origObserver = footerObserver;
+  footerObserver.disconnect();
+  const conditionalObserver = new IntersectionObserver((entries) => {
+    // only operate if chatbot has no top style (i.e., it's floating at bottom)
+    if (chatWidget.style.top) return;
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const visible = Math.max(0, window.innerHeight - entry.boundingClientRect.top);
+        const gap = 18;
+        chatWidget.style.bottom = `${visible + gap}px`;
+      } else {
+        chatWidget.style.bottom = '';
+      }
+    });
+  }, { threshold: [0, 0.01, 0.1, 0.5, 1] });
+  conditionalObserver.observe(pageFooter);
 }

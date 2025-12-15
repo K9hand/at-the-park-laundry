@@ -1229,6 +1229,80 @@ select {
   will-change: transform;
 }
 
+/* Chatbot widget */
+.chatbot {
+  position: fixed;
+  right: 18px;
+  top: calc(var(--nav-height) + 18px); /* position under the top nav */
+  bottom: auto;
+  z-index: 99999;
+  font-family: inherit;
+}
+.chatbot > .chatbot-toggle {
+  background: linear-gradient(135deg, #e1b49c, #c97857);
+  color: #071022;
+  border: none;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  box-shadow: 0 12px 30px rgba(15,23,42,0.12);
+  cursor: default;
+}
+.chatbot-toggle:active { cursor: grabbing; }
+.chatbot-toggle svg { display:block; color: #071022; }
+
+/* Nav bar assistant button styling */
+.chatbot-nav-toggle {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(15,23,42,0.06);
+  color: var(--ink);
+  padding: 8px 10px;
+  border-radius: 10px;
+  margin-left: 8px;
+  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* hide floating circular toggle since we use nav button now (keep panel behavior) */
+.chatbot > .chatbot-toggle { display: none; }
+.chatbot-panel {
+  display: none;
+  width: min(360px, 92vw);
+  max-height: 70vh;
+  background: var(--card);
+  border-radius: 12px;
+  box-shadow: 0 24px 60px rgba(15,23,42,0.18);
+  overflow: hidden;
+  margin-bottom: 12px;
+  border: 1px solid rgba(15,23,42,0.06);
+}
+.chatbot-panel[aria-hidden="false"] { display: flex; flex-direction: column; }
+.chatbot-header {
+  display:flex; align-items:center; justify-content:space-between; padding:12px 14px; border-bottom:1px solid rgba(15,23,42,0.04);
+}
+.chatbot-body {
+  padding: 12px; overflow:auto; display:block; flex:1; background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent 60%);
+}
+.chatbot-body .msg { margin-bottom:10px; max-width:86%; padding:8px 10px; border-radius:10px; font-size:14px; }
+.chatbot-body .msg.user { margin-left:auto; background:#e6f0ff; color:var(--ink); }
+.chatbot-body .msg.bot { background: rgba(15,27,61,0.9); color:#fff; }
+.chatbot-suggestions { padding: 10px; display:flex; gap:8px; flex-wrap:wrap; border-top:1px solid rgba(15,23,42,0.04);} 
+.chatbot-suggestions button { background: rgba(255,255,255,0.06); border:1px solid rgba(15,23,42,0.04); padding:6px 10px; border-radius:8px; cursor:pointer; color:var(--ink);}
+.chatbot-form { display:flex; gap:8px; padding:10px; border-top:1px solid rgba(15,23,42,0.04); }
+.chatbot-input { flex:1; padding:8px 10px; border-radius:8px; border:1px solid rgba(15,23,42,0.06); }
+.chatbot-send { background: var(--accent); color:#fff; border:none; padding:8px 10px; border-radius:8px; cursor:pointer; }
+
+@media (max-width: 640px) {
+  .chatbot { right: 12px; bottom: 12px; }
+  .chatbot-panel { width: calc(100vw - 32px); max-height: 60vh; }
+}
+
 .section.alt {
   position: relative;
 }
