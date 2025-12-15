@@ -56,29 +56,31 @@
               <button class="ghost" id="call-btn">WhatsApp the team</button>
             </div>
           </div>
-          <div class="hero-carousel" aria-label="Laundry highlights carousel">
+          <div class="hero-carousel" aria-label="Laundry highlights carousel" role="region" tabindex="0">
             <div class="carousel-track">
-              <figure class="slide active">
+              <figure id="slide-0" class="slide active" role="tabpanel" aria-hidden="false">
                 <img src="Customer%20picking%20up%20.png" alt="Customer collecting neatly folded laundry at the counter.">
               </figure>
-              <figure class="slide">
+              <figure id="slide-1" class="slide" role="tabpanel" aria-hidden="true">
                 <img src="Interior%20of%20a%20drop-o.png" alt="Interior of At the Park Laundry drop-off with machines running.">
                 <figcaption>Commercial-grade cleaning with eco detergents.</figcaption>
               </figure>
-              <figure class="slide">
+              <figure id="slide-2" class="slide" role="tabpanel" aria-hidden="true">
                 <img src="Exterior%20of%20a%20drop-o.png" alt="Exterior of At the Park Laundry drop-off location.">
                 <figcaption>Freshly wrapped and ready for collection.</figcaption>
               </figure>
             </div>
             <div class="carousel-overlay">
+              <div class="sr-only carousel-live" aria-live="polite" aria-atomic="true"></div>
               <div class="overlay-stats">
               </div>
               <div class="carousel-controls">
+                <button type="button" class="ghost carousel-toggle" aria-pressed="false" aria-label="Pause carousel">Pause</button>
                 <button type="button" class="ghost icon carousel-control prev" aria-label="Previous photo">&#8592;</button>
                 <div class="carousel-dots" role="tablist">
-                  <button type="button" class="dot active" aria-label="Show first photo" data-index="0"></button>
-                  <button type="button" class="dot" aria-label="Show second photo" data-index="1"></button>
-                  <button type="button" class="dot" aria-label="Show third photo" data-index="2"></button>
+                  <button type="button" class="dot active" role="tab" aria-selected="true" aria-controls="slide-0" aria-label="Show first photo" data-index="0"></button>
+                  <button type="button" class="dot" role="tab" aria-selected="false" aria-controls="slide-1" aria-label="Show second photo" data-index="1"></button>
+                  <button type="button" class="dot" role="tab" aria-selected="false" aria-controls="slide-2" aria-label="Show third photo" data-index="2"></button>
                 </div>
                 <button type="button" class="ghost icon carousel-control next" aria-label="Next photo">&#8594;</button>
               </div>
