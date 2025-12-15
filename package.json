@@ -1,0 +1,12 @@
+{
+  "name": "at-the-park-laundry",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "lhci": "lhci autorun --upload.target=temporary-public-storage",
+    "test": "echo \"No tests configured\" && exit 0"
+  },
+  "devDependencies": {
+    "@lhci/cli": "^0.7.3"
+  }
+}

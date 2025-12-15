@@ -1,0 +1,11 @@
+ci:
+  collect:
+    numberOfRuns: 1
+  upload:
+    target: temporary-public-storage
+assert:
+  assertions:
+    categories:performance: '50'
+    categories:accessibility: '90'
+    categories:best-practices: '70'
+    categories:seo: '60'
