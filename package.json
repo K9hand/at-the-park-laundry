@@ -4,9 +4,13 @@
   "private": true,
   "scripts": {
     "lhci": "lhci autorun --upload.target=temporary-public-storage",
+    "test:e2e": "playwright test",
     "test": "echo \"No tests configured\" && exit 0"
   },
   "devDependencies": {
     "@lhci/cli": "^0.7.3"
+  ,
+    "@playwright/test": "^1.38.0",
+    "http-server": "^14.1.1"
   }
 }
