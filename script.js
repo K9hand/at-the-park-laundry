@@ -68,7 +68,6 @@ const setSlide = (index) => {
   dots.forEach((dot, i) => {
     dot.classList.toggle('active', i === nextIndex);
     dot.setAttribute('aria-selected', i === nextIndex ? 'true' : 'false');
-    if (i === nextIndex) dot.focus && dot.focus({ preventScroll: true });
   });
   carouselIndex = nextIndex;
   // update live region with slide info
