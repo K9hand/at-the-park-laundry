@@ -928,8 +928,10 @@ button:disabled {
 }
 
 .price-card {
-  display: grid;
-  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-bottom: 12px;
 }
 
 .price-card .cta.full {
@@ -939,6 +941,31 @@ button:disabled {
   padding: 14px 18px;
   border-radius: 12px;
   font-size: 15px;
+}
+
+/* Ensure price card CTAs have a consistent size and alignment */
+.price-card .cta.full,
+.price-card .cta.full.ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 56px;
+  padding: 14px 18px;
+  border-radius: 12px;
+}
+
+.price-card .cta.full.ghost {
+  /* ghost variant should look a bit lighter but match sizing */
+  background: rgba(235, 241, 255, 0.9);
+  border: 1px solid rgba(28, 126, 214, 0.08);
+  color: var(--ink);
+  box-shadow: none;
+}
+
+/* Pin CTAs to the bottom of the card so they align across columns */
+.price-card .cta.full {
+  margin-top: auto;
 }
 
 @media (max-width: 640px) {
