@@ -1158,6 +1158,62 @@ button:disabled {
   padding-bottom: 12px;
 }
 
+.price-duo {
+  padding: 0;
+  overflow: hidden;
+}
+
+.price-duo .price-column {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+}
+
+.price-duo .price-column + .price-column {
+  border-top: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.column-head {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  align-items: center;
+  position: relative;
+}
+
+.column-head h3 {
+  margin-bottom: 6px;
+}
+
+.column-head .tag {
+  position: absolute;
+  right: 0;
+  top: 4px;
+}
+
+@media (min-width: 900px) {
+  .price-duo {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .price-duo .price-column + .price-column {
+    border-top: none;
+    border-left: 1px solid rgba(15, 23, 42, 0.06);
+  }
+
+  .column-head {
+    grid-template-columns: auto 1fr auto;
+  }
+
+  .column-head .tag {
+    position: static;
+    justify-self: end;
+  }
+}
+
 .estimate-card {
   background: rgba(255, 255, 255, 0.92);
   border: 1px solid rgba(15, 23, 42, 0.08);
@@ -1305,7 +1361,7 @@ button:disabled {
 
 @media (min-width: 1000px) {
   .pricing-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: 1fr;
   }
 }
 
@@ -1314,7 +1370,7 @@ button:disabled {
   padding: 0;
   margin: 6px 0 4px;
   display: grid;
-  gap: 8px;
+  gap: 6px;
 }
 
 .price-list li {
@@ -1324,8 +1380,15 @@ button:disabled {
   gap: 12px;
   color: var(--muted);
   font-weight: 600;
-  padding: 10px 0;
+  padding: 8px 0;
   border-bottom: 1px solid rgba(15, 23, 42, 0.04);
+}
+
+@media (min-width: 1100px) {
+  .price-duo .price-list {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
 }
 
 .price-list li strong {
@@ -1336,19 +1399,8 @@ button:disabled {
   font-variant-numeric: tabular-nums;
 }
 
-.price-card.featured {
-  border: 1px solid rgba(208, 106, 75, 0.24);
-  box-shadow: 0 18px 50px rgba(208, 106, 75, 0.12), 0 2px 10px rgba(15, 23, 42, 0.06);
-  position: relative;
-  overflow: hidden;
-}
-
 .price-card .tag {
   align-self: flex-start;
-}
-
-.price-card.featured::after {
-  content: none;
 }
 
 .testimonial-grid {

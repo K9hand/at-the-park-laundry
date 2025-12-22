@@ -294,7 +294,7 @@ function handleUserMessage(raw){
   }
 
   if(lower === 'contact' || lower.includes('contact')){
-    appendMessage('You can call us at (917) 555-1212 or WhatsApp via the site.');
+    appendMessage('You can call us at +27 63 696 1201 or WhatsApp via the site.');
     return;
   }
 
