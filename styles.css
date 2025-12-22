@@ -13,8 +13,8 @@
   --shadow: 0 28px 70px rgba(15, 23, 42, 0.14), 0 2px 10px rgba(15, 23, 42, 0.06);
   --shadow-soft: 0 12px 30px rgba(15, 23, 42, 0.08);
   --shadow-deep: 0 36px 90px rgba(15, 23, 42, 0.18);
-  --font-body: 'Spline Sans', sans-serif;
-  --font-display: 'Fraunces', serif;
+  --font-body: 'Manrope', sans-serif;
+  --font-display: 'Space Grotesk', sans-serif;
   --space-xs: 6px;
   --space-sm: 12px;
   --space-md: 18px;
@@ -1361,7 +1361,7 @@ button:disabled {
 
 @media (min-width: 1000px) {
   .pricing-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -1806,18 +1806,22 @@ select {
 
 @media (max-width: 640px) {
   .page-shell {
-    padding: calc(var(--nav-height) + 24px) 16px 120px; /* account for fixed nav on mobile */
+    padding: calc(var(--nav-height) + 80px) 16px 120px; /* add extra breathing room below fixed nav */
   }
   .top-nav {
-    position: fixed;
-    left: 12px;
-    right: 12px;
-    top: calc(env(safe-area-inset-top, 8px) + 6px);
-    padding: 8px 12px;
-    box-shadow: var(--shadow-soft);
-    border-radius: 12px;
-    background: rgba(255,255,255,0.88);
-    z-index: 9999;
+    position: fixed; /* fix nav to top */
+    left: 12px; /* add some side margin for safe area */
+    right: 12px; /* add some side margin for safe area */
+    top: calc(env(safe-area-inset-top, 8px) + 6px); /* respect safe area inset */
+    padding: 8px 10px; /* reduce padding for mobile */
+    box-shadow: var(--shadow-soft); /* add shadow for separation */
+    border-radius: 12px; /* rounded corners */
+    background: rgba(255,255,255,0.88); /* semi-transparent bg */
+    z-index: 9999; /* above other content */
+  }
+
+  .hero {
+    margin-top: 1px;
   }
 
   /* Mobile: compact nav items to prevent wrapping and overflowing */
