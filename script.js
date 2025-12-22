@@ -1,6 +1,8 @@
+document.documentElement.classList.add('js');
+
 const burger = document.querySelector('.burger');
 const mobileMenu = document.querySelector('.mobile-menu');
-const callBtn = document.getElementById('call-btn');
+const whatsappBtn = document.getElementById('whatsapp-btn');
 const contactForm = document.querySelector('.cta-form');
 
 if (burger && mobileMenu) {
@@ -16,11 +18,9 @@ if (burger && mobileMenu) {
   });
 }
 
-if (callBtn) {
-  callBtn.addEventListener('click', () => {
-    const number = '+19175551212';
-    window.location.href = `sms:${number}?body=Hi%20Park%20Laundry%2C%20I%27d%20like%20to%20book%20a%20wash.%20`;
-  });
+if (whatsappBtn && whatsappBtn.tagName === 'A') {
+  whatsappBtn.setAttribute('target', '_blank');
+  whatsappBtn.setAttribute('rel', 'noopener');
 }
 
 if (contactForm) {
@@ -45,6 +45,22 @@ if (contactForm) {
     }
   });
 }
+
+const locationStatus = document.querySelector('.location-status');
+const openStatus = document.getElementById('open-status');
+const openDot = document.getElementById('open-dot');
+
+const updateOpenStatus = () => {
+  if (!openStatus || !locationStatus || !openDot) return;
+  const now = new Date();
+  const openHour = 7;
+  const closeHour = 21;
+  const isOpen = now.getHours() >= openHour && now.getHours() < closeHour;
+  locationStatus.classList.toggle('is-closed', !isOpen);
+  openStatus.textContent = isOpen ? 'Open now - closes 9pm' : 'Closed - opens 7am';
+};
+
+updateOpenStatus();
 
 const heroCarousel = document.querySelector('.hero-carousel');
 const slides = document.querySelectorAll('.hero-carousel .slide');
@@ -205,6 +221,32 @@ const chatNavToggle = document.querySelector('.chatbot-nav-toggle');
 
 const rates = { wash_dry_iron: 37, wash_dry: 35, wash_only: 30, iron_only: 33 };
 
+const estimateRange = document.getElementById('estimate-range');
+const estimateKg = document.getElementById('estimate-kg');
+const estimateTotal = document.getElementById('estimate-total');
+const estimateOptions = document.querySelectorAll('input[name="estimate-service"]');
+
+const updateEstimate = () => {
+  if (!estimateRange || !estimateKg || !estimateTotal) return;
+  const kg = Number(estimateRange.value);
+  const selected = document.querySelector('input[name="estimate-service"]:checked');
+  const rateKey = selected ? selected.value : 'wash_dry_iron';
+  const rate = rates[rateKey] || rates.wash_dry_iron;
+  const total = (kg * rate).toFixed(2);
+  estimateKg.textContent = String(kg);
+  estimateTotal.textContent = `R${total}`;
+};
+
+if (estimateRange) {
+  estimateRange.addEventListener('input', updateEstimate);
+}
+
+estimateOptions.forEach((option) => {
+  option.addEventListener('change', updateEstimate);
+});
+
+updateEstimate();
+
 function appendMessage(text, who = 'bot'){
   const el = document.createElement('div');
   el.className = `msg ${who}`;
@@ -218,7 +260,7 @@ function openChat(){
   chatToggle.setAttribute('aria-expanded','true');
   chatPanel.focus();
   // greet
-  setTimeout(()=>appendMessage('Hi — I can help with hours, quick pricing estimates, or booking. Try: "Hours" or "Pricing estimate"'),250);
+  setTimeout(() => appendMessage('Hi! I can help with hours, quick pricing estimates, or booking. Try: "Hours" or "Pricing estimate".'), 250);
 }
 
 function closeChat(){
@@ -246,8 +288,8 @@ function handleUserMessage(raw){
 
   const lower = String(raw).toLowerCase().trim();
 
-  if(lower === 'hours' || lower.includes('hour')){
-    appendMessage('We are open Mon–Fri 08:00–18:00, Sat 08:00–14:00, Sun closed. Drop-offs accepted during opening hours.');
+  if (lower === 'hours' || lower.includes('hour')) {
+    appendMessage('We are open daily 07:00-21:00. Drop-offs accepted during opening hours.');
     return;
   }
 
@@ -256,9 +298,12 @@ function handleUserMessage(raw){
     return;
   }
 
-  if(lower.includes('book') || lower.includes('booking') || lower === 'book'){
-    appendMessage('Great — click Book a load or I can open the booking section for you.');
-    document.querySelector('.cta') && document.querySelector('.cta').scrollIntoView({behavior:'smooth'});
+  if (lower.includes('book') || lower.includes('booking') || lower === 'book') {
+    appendMessage('Great - click Book a load or I can open the booking section for you.');
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
     return;
   }
 
@@ -281,7 +326,7 @@ function handleUserMessage(raw){
 
   // fallback answers
   if(lower.length < 4) { appendMessage('Could you please add a few more words? (e.g., "Hours" or "5kg estimate")'); return; }
-  appendMessage('I can help with hours, quick pricing estimates (e.g., "5kg"), or booking — try one of those or click a suggestion.');
+  appendMessage('I can help with hours, quick pricing estimates (e.g., "5kg"), or booking - try one of those or click a suggestion.');
 }
 
 // form submit
@@ -297,50 +342,36 @@ if(chatForm){
 }
 
 // Simple keyboard to close chat with Escape
-document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && chatPanel && chatPanel.getAttribute('aria-hidden') === 'false'){ closeChat(); chatToggle && chatToggle.focus(); } });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && chatPanel && chatPanel.getAttribute('aria-hidden') === 'false') { closeChat(); chatToggle && chatToggle.focus(); } });
+
+const revealItems = document.querySelectorAll('.reveal');
+if (revealItems.length) {
+  if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    revealItems.forEach((item) => revealObserver.observe(item));
+  } else {
+    revealItems.forEach((item) => item.classList.add('is-visible'));
+  }
+}
 
 /* Ensure chatbot isn't hidden by the footer: move it up when footer is visible */
 const chatWidget = document.querySelector('.chatbot');
 const pageFooter = document.querySelector('.footer');
 if (chatWidget && pageFooter && 'IntersectionObserver' in window) {
+  const isTopAnchored = () => window.getComputedStyle(chatWidget).top !== 'auto';
   const footerObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        // compute how much of the footer is visible from the bottom
-        const visible = Math.max(0, window.innerHeight - entry.boundingClientRect.top);
-        // add a small gap
-        const gap = 18;
-        chatWidget.style.bottom = `${visible + gap}px`;
-      } else {
-        chatWidget.style.bottom = '';// revert to CSS default (18px)
-      }
-    });
-  }, { threshold: [0, 0.01, 0.1, 0.5, 1] });
-
-  footerObserver.observe(pageFooter);
-
-  // also reset on resize to be safe
-  window.addEventListener('resize', () => {
-    // if footer currently visible, IntersectionObserver will fire; ensure fallback
-    const rect = pageFooter.getBoundingClientRect();
-    if (rect.top < window.innerHeight && rect.bottom > 0) {
-      const visible = Math.max(0, window.innerHeight - rect.top);
-      chatWidget.style.bottom = `${visible + 18}px`;
-    } else {
+    if (isTopAnchored()) {
       chatWidget.style.bottom = '';
+      return;
     }
-  });
-}
-
-// If the chatbot is positioned at top (nav) we don't need to move it when footer is visible
-// Ensure the footer observer only acts when chatbot uses bottom positioning (legacy floating)
-if (chatWidget && pageFooter && 'IntersectionObserver' in window) {
-  const origObserver = footerObserver;
-  footerObserver.disconnect();
-  const conditionalObserver = new IntersectionObserver((entries) => {
-    // only operate if chatbot has no top style (i.e., it's floating at bottom)
-    if (chatWidget.style.top) return;
-    entries.forEach(entry => {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
         const visible = Math.max(0, window.innerHeight - entry.boundingClientRect.top);
         const gap = 18;
@@ -350,5 +381,21 @@ if (chatWidget && pageFooter && 'IntersectionObserver' in window) {
       }
     });
   }, { threshold: [0, 0.01, 0.1, 0.5, 1] });
-  conditionalObserver.observe(pageFooter);
+
+  footerObserver.observe(pageFooter);
+
+  // also reset on resize to be safe
+  window.addEventListener('resize', () => {
+    if (isTopAnchored()) {
+      chatWidget.style.bottom = '';
+      return;
+    }
+    const rect = pageFooter.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      const visible = Math.max(0, window.innerHeight - rect.top);
+      chatWidget.style.bottom = `${visible + 18}px`;
+    } else {
+      chatWidget.style.bottom = '';
+    }
+  });
 }

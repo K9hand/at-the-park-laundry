@@ -6,7 +6,7 @@
   <title>At the Park Laundry</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Spline+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -30,7 +30,7 @@
       <div class="nav-actions">
         <!--<a class="ghost mobile-hide" href="tel:+19175551212">Call (917) 555-1212</a>-->
         <a class="cta" href="#contact">Book a load</a>
-        <button class="chatbot-nav-toggle" aria-label="Open assistant" title="Assistant">🤖</button>
+        <button class="chatbot-nav-toggle" aria-label="Open assistant" title="Assistant">Chat</button>
         <button class="burger" aria-label="Toggle navigation">
           <span></span>
           <span></span>
@@ -41,7 +41,6 @@
         <a href="#process">How it works</a>
         <a href="#pricing">Pricing</a>
         <a href="#location">Location</a>
-        <a href="#testimonials">Reviews</a>
         <a href="#contact">Contact</a>
       </div>
     </header>
@@ -50,11 +49,35 @@
       <section class="hero">
         <div class="hero-grid">
           <div class="hero-copy">
-            <h1>Spotless laundry, <span>ready to collect.</span></h1>
-            <p>At the Park Laundry keeps your week moving with precise cleaning, careful folding, and crisp finishing. Drop off in the morning, collect after work.</p>
+            <div class="hero-pill">Next-gen laundry studio</div>
+            <h1>Laundry care, <span>upgraded for busy weeks.</span></h1>
+            <p>At the Park Laundry blends meticulous care with modern speed. Drop off in the morning, collect after work, with status updates along the way.</p>
+            <div class="hero-highlights">
+              <div class="highlight">
+                <span class="highlight-tag">6h</span>
+                <div>
+                  <p class="highlight-title">Average turnaround</p>
+                  <p class="highlight-sub">Same-day when dropped early</p>
+                </div>
+              </div>
+              <div class="highlight">
+                <span class="highlight-tag">ECO</span>
+                <div>
+                  <p class="highlight-title">Skin-safe detergents</p>
+                  <p class="highlight-sub">Preferences saved per customer</p>
+                </div>
+              </div>
+              <div class="highlight">
+                <span class="highlight-tag">SMS</span>
+                <div>
+                  <p class="highlight-title">Live status updates</p>
+                  <p class="highlight-sub">Pickup alerts in real time</p>
+                </div>
+              </div>
+            </div>
             <div class="cta-row">
               <a class="cta" href="#contact">Book a load</a>
-              <button class="ghost" id="call-btn">WhatsApp the team</button>
+              <a class="ghost" id="whatsapp-btn" href="https://wa.me/19175551212?text=Hi%20Park%20Laundry%2C%20I%27d%20like%20to%20book%20a%20wash.">WhatsApp the team</a>
             </div>
           </div>
           <div class="hero-carousel" aria-label="Laundry highlights carousel" role="region" tabindex="0">
@@ -100,36 +123,77 @@
         <div class="hero-dots"></div>
       </section>
 
-      <section id="services" class="section">
+      <section id="services" class="section reveal">
         <div class="section-header">
           <p class="eyebrow">Services built for busy weeks</p>
           <h2>Clean clothes without the chore list.</h2>
+          <p>Pick a track, add notes once, and let us handle the routine from there.</p>
         </div>
-        <div class="card-grid">
-          <article class="service-card">
-            <div class="icon-badge">WF</div>
-            <h3>Wash & fold</h3>
+        <div class="service-grid">
+          <article class="service-tile">
+            <div class="tile-top">
+              <div class="icon-badge">WF</div>
+              <div>
+                <h3>Wash & fold</h3>
+                <p class="tile-sub">Weekly baskets, sorted by fabric.</p>
+              </div>
+            </div>
             <p>Sorted, spot-treated, washed at precise temps, and folded into tidy stacks that slide straight into drawers.</p>
-            <ul>
-              <li>Hypoallergenic & eco detergents</li>
-              <li>Custom water temp & softener notes</li>
-              <li>Delicates hang-dried on racks</li>
-            </ul>
+            <div class="tile-tags">
+              <span>Eco detergents</span>
+              <span>Stain care</span>
+              <span>Drawer-ready</span>
+            </div>
           </article>
-          <article class="service-card">
-            <div class="icon-badge">PR</div>
-            <h3>Pressed & finished</h3>
-            <p>Shirts, trousers, linens, and uniforms finished with crisp, professional pressing and steam finishing.</p>
-            <ul>
-              <li>Next-day shirts & uniforms</li>
-              <li>Starch levels to your preference</li>
-              <li>On-hanger or folded for collection</li>
-            </ul>
+          <article class="service-tile">
+            <div class="tile-top">
+              <div class="icon-badge">PR</div>
+              <div>
+                <h3>Pressed & finished</h3>
+                <p class="tile-sub">Crisp shirts, trousers, linens.</p>
+              </div>
+            </div>
+            <p>Professional pressing and steam finishing with starch levels to your preference.</p>
+            <div class="tile-tags">
+              <span>Next-day ready</span>
+              <span>On-hanger</span>
+              <span>Sharp creases</span>
+            </div>
+          </article>
+          <article class="service-tile">
+            <div class="tile-top">
+              <div class="icon-badge">BK</div>
+              <div>
+                <h3>Bulk & commercial</h3>
+                <p class="tile-sub">Studios, clinics, and teams.</p>
+              </div>
+            </div>
+            <p>Reliable large-load service with documented inventory checks and priority scheduling.</p>
+            <div class="tile-tags">
+              <span>Batch tracking</span>
+              <span>Priority slots</span>
+              <span>Invoice ready</span>
+            </div>
+          </article>
+          <article class="service-tile">
+            <div class="tile-top">
+              <div class="icon-badge">HB</div>
+              <div>
+                <h3>Household care</h3>
+                <p class="tile-sub">Blankets, duvets, and throws.</p>
+              </div>
+            </div>
+            <p>Bulky items cleaned in dedicated cycles and packaged for easy storage.</p>
+            <div class="tile-tags">
+              <span>Low-heat dry</span>
+              <span>Fresh wrap</span>
+              <span>Odor guard</span>
+            </div>
           </article>
         </div>
       </section>
 
-      <section id="process" class="section alt">
+      <section id="process" class="section alt reveal">
         <div class="section-header">
           <p class="eyebrow">Simple three-step flow</p>
           <h2>From hamper to home in a day.</h2>
@@ -169,12 +233,12 @@
         </div>
       </section>
 
-      <section class="section split">
+      <section class="section split reveal">
         <div class="image-tile">
           <div class="tile-overlay">
-            <p class="eyebrow">Eco detergents</p>
-            <h3>Clothes that feel as good as they look.</h3>
-            <p>We keep skin-safe, planet-friendly detergents in rotation and store your preferences so your laundry always feels right.</p>
+            <p class="eyebrow">Care standards</p>
+            <h3>Gentle detergents, consistent results.</h3>
+            <p>Hypoallergenic options, fabric-specific cycles, and saved preferences so every load returns soft, fresh, and comfortable.</p>
           </div>
         </div>
         <div class="list-tile">
@@ -212,13 +276,54 @@
         </div>
       </section>
 
-      <section id="pricing" class="section">
+      <section id="pricing" class="section reveal">
         <div class="section-header">
           <p class="eyebrow">Clear pricing</p>
           <h2>Bloemfontein-ready rates (incl. VAT).</h2>
-          <p class="pricing-note">Prices include VAT. Per-kg services are charged per kilogram; specialty items are per item unless otherwise noted.</p>
+          <p class="pricing-note">Prices include VAT. Per-kg services are charged per kilogram; specialty items are per item unless otherwise noted. Use the estimator for a quick total.</p>
         </div>
         <div class="pricing-grid">
+          <div class="price-card estimate-card">
+            <div>
+              <p class="eyebrow">Instant estimate</p>
+              <h3>Plan your next load</h3>
+              <p class="estimate-note">Slide the weight, choose a service, and lock your estimate in seconds.</p>
+            </div>
+            <div class="estimate-controls">
+              <label class="range-label">
+                Load size
+                <input type="range" id="estimate-range" min="3" max="20" step="1" value="6">
+              </label>
+              <div class="estimate-output">
+                <div>
+                  <div class="estimate-kg"><span id="estimate-kg">6</span> kg</div>
+                  <p class="estimate-sub">Typical family basket</p>
+                </div>
+                <div class="estimate-total">
+                  Estimated total
+                  <strong id="estimate-total">R222</strong>
+                </div>
+              </div>
+              <div class="estimate-options">
+                <label class="option-card">
+                  <input type="radio" name="estimate-service" value="wash_dry_iron" checked>
+                  <span>Wash, dry & iron</span>
+                  <em>R37/kg</em>
+                </label>
+                <label class="option-card">
+                  <input type="radio" name="estimate-service" value="wash_dry">
+                  <span>Wash & dry</span>
+                  <em>R35/kg</em>
+                </label>
+                <label class="option-card">
+                  <input type="radio" name="estimate-service" value="wash_only">
+                  <span>Wash only</span>
+                  <em>R30/kg</em>
+                </label>
+              </div>
+              <a class="cta full" href="#contact">Lock this estimate</a>
+            </div>
+          </div>
           <div class="price-card">
             <div class="icon-badge">KG</div>
             <p class="eyebrow">Per kg services</p>
@@ -251,11 +356,16 @@
         </div>
       </section>
 
-      <section id="location" class="section alt">
+      <section id="location" class="section alt reveal">
         <div class="section-header">
           <p class="eyebrow">Find us</p>
           <h2>At the Park, Bloemfontein</h2>
           <p>At the Park Centre, 22 Dirk Opperman, Langenhovenpark, Bloemfontein, Free State.</p>
+          <div class="location-status" role="status" aria-live="polite">
+            <span class="status-dot" id="open-dot" aria-hidden="true"></span>
+            <span id="open-status">Open now - closes 9pm</span>
+            <span class="status-sub">Daily 7am - 9pm</span>
+          </div>
         </div>
         <div class="map-grid">
           <div class="map-card">
@@ -275,54 +385,25 @@
               <li>Ground / lower level entrance</li>
               <li>Easy parking in centre lot</li>
             </ul>
-            <p class="small-print">Need help? Call and we'll guide you.</p>
+            <div class="busy-hours">
+              <p class="item-title">Typical busy hours</p>
+              <div class="busy-bars" aria-hidden="true">
+                <span style="--level: 0.3">7a</span>
+                <span style="--level: 0.55">10a</span>
+                <span style="--level: 0.35">1p</span>
+                <span style="--level: 0.6">4p</span>
+                <span style="--level: 0.8">6p</span>
+                <span style="--level: 0.45">8p</span>
+              </div>
+              <p class="item-sub">Midday and after-work peaks.</p>
+            </div>
+            <p class="small-print">Need help? Call and we'll guide you. Open daily 7am - 9pm.</p>
           </div>
         </div>
       </section>
 
-      <section id="testimonials" class="section alt">
-        <div class="section-header">
-          <p class="eyebrow">Neighborhood-approved</p>
-          <h2>Reviews from regulars.</h2>
-        </div>
-        <div class="testimonial-grid">
-          <article class="testimonial">
-            <div class="quote-mark">"</div>
-            <p>Park Laundry is my Sunday hack. I leave the bag on the porch before brunch, it's back folded by dinner. Zero effort.</p>
-            <div class="author">
-              <span class="avatar">J</span>
-              <div>
-                <p class="item-title">Jamie - Prospect Heights</p>
-                <p class="item-sub">Weekly wash & fold</p>
-              </div>
-            </div>
-          </article>
-          <article class="testimonial">
-            <div class="quote-mark">"</div>
-            <p>The rush service saved me before a work trip. Shirts were crisp, no stray threads, and they texted updates along the way.</p>
-            <div class="author">
-              <span class="avatar">M</span>
-              <div>
-                <p class="item-title">Marcos - Flatbush</p>
-                <p class="item-sub">Rush press & finish</p>
-              </div>
-            </div>
-          </article>
-          <article class="testimonial">
-            <div class="quote-mark">"</div>
-            <p>I'm picky about detergent. They keep my preferences on file and even label my kid's clothes by size. Huge time saver.</p>
-            <div class="author">
-              <span class="avatar">T</span>
-              <div>
-                <p class="item-title">Taylor - Park Slope</p>
-                <p class="item-sub">Family plan</p>
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
 
-      <section id="contact" class="section cta-section">
+      <section id="contact" class="section cta-section reveal">
         <div class="cta-card">
           <div>
             <p class="eyebrow">Ready when you are</p>
@@ -373,6 +454,12 @@
       </section>
     </main>
 
+    <div class="mobile-cta-bar" aria-label="Quick actions">
+      <a class="cta" href="#contact">Book</a>
+      <a class="ghost" href="https://wa.me/19175551212?text=Hi%20Park%20Laundry%2C%20I%27d%20like%20to%20book%20a%20wash." target="_blank" rel="noopener">WhatsApp</a>
+      <a class="ghost" href="tel:+19175551212">Call</a>
+    </div>
+
     <!-- Simple FAQ Chatbot widget -->
     <div class="chatbot" aria-hidden="false">
       <button class="chatbot-toggle" aria-label="Open chat" aria-expanded="false" title="Open chat (drag to reposition)">
@@ -382,7 +469,7 @@
       <div class="chatbot-panel" role="dialog" aria-label="Site assistant" aria-hidden="true">
         <header class="chatbot-header">
           <strong>Park Laundry Assistant</strong>
-          <button class="chatbot-close" aria-label="Close chat">✕</button>
+          <button class="chatbot-close" aria-label="Close chat">Close</button>
         </header>
         <div class="chatbot-body" role="log" aria-live="polite"></div>
         <div class="chatbot-suggestions">
@@ -392,7 +479,7 @@
           <button data-suggest="contact">Contact details</button>
         </div>
         <form class="chatbot-form" aria-label="Chat input">
-          <input type="text" class="chatbot-input" placeholder="Ask about hours, pricing, or booking…" aria-label="Type a message" />
+          <input type="text" class="chatbot-input" placeholder="Ask about hours, pricing, or booking..." aria-label="Type a message" />
           <button type="submit" class="chatbot-send" aria-label="Send">Send</button>
         </form>
       </div>
@@ -410,7 +497,6 @@
         <a href="#services">Services</a>
         <a href="#pricing">Pricing</a>
         <a href="#location">Location</a>
-        <a href="#testimonials">Reviews</a>
         <a href="#contact">Contact</a>
       </div>
       <div class="footer-contact">
