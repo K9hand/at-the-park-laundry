@@ -1,0 +1,67 @@
+/* ===== Sections ===== */
+
+.hero {
+  margin-top: clamp(18px, 3vw, var(--space-xl));
+  padding: clamp(18px, 3vw, 28px);
+  position: relative;
+  overflow: hidden;
+  border-radius: calc(var(--radius) + 10px);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.68)),
+    repeating-linear-gradient(135deg, rgba(15, 23, 42, 0.03) 0 1px, transparent 1px 12px);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  box-shadow: var(--shadow-deep);
+}
+
+.hero::before,
+.hero::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.65;
+}
+
+.hero::before {
+  width: 320px;
+  height: 320px;
+  background: #dff0ff;
+  top: -40px;
+  right: -80px;
+}
+
+.hero::after {
+  width: 320px;
+  height: 320px;
+  background: #f9e5da;
+  bottom: -120px;
+  left: -120px;
+}
+
+.hero-copy h1 {
+  font-size: clamp(34px, 5.4vw, 54px);
+  line-height: 1.02;
+  max-width: 20ch;
+  margin-bottom: var(--space-sm);
+}
+
+.hero-copy h1 span {
+  color: var(--primary);
+}
+
+.hero-copy p {
+  font-size: 18px;
+  max-width: 54ch;
+}
+
+.hero-dots {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  right: var(--space-md);
+  bottom: var(--space-md);
+  background-image: radial-gradient(#b7d7ff 2px, transparent 2px);
+  background-size: 16px 16px;
+  opacity: 0.5;
+  animation: float 8s ease-in-out infinite;
+  will-change: transform;
+}

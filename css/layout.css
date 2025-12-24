@@ -1,0 +1,80 @@
+/* ===== Layout ===== */
+
+.page-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: clamp(18px, 3vw, 28px) clamp(16px, 3vw, 24px) 72px;
+  position: relative;
+}
+
+.section {
+  margin-top: 64px;
+}
+
+.section-header {
+  max-width: 640px;
+  margin-bottom: 22px;
+}
+
+.section-header h2 {
+  font-size: clamp(28px, 4vw, 34px);
+}
+
+.section.alt {
+  position: relative;
+}
+
+.section.alt::after {
+  content: '';
+  position: absolute;
+  inset: 12px;
+  border-radius: var(--space-md);
+  border: 1px dashed rgba(28, 126, 214, 0.12);
+  pointer-events: none;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+  gap: var(--space-xl);
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-copy {
+  max-width: 540px;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+  gap: var(--space-md);
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+  gap: var(--space-md);
+  align-items: stretch;
+}
+
+.map-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+  gap: 16px;
+  align-items: stretch;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-sm);
+}

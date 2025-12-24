@@ -50,14 +50,56 @@ const locationStatus = document.querySelector('.location-status');
 const openStatus = document.getElementById('open-status');
 const openDot = document.getElementById('open-dot');
 
+const weeklyHours = [
+  { open: 8 * 60, close: 14 * 60 },   // Sunday
+  { open: 7 * 60, close: 17 * 60 + 30 }, // Monday
+  { open: 7 * 60, close: 17 * 60 + 30 }, // Tuesday
+  { open: 7 * 60, close: 17 * 60 + 30 }, // Wednesday
+  { open: 7 * 60, close: 17 * 60 + 30 }, // Thursday
+  { open: 7 * 60, close: 17 * 60 + 30 }, // Friday
+  { open: 7 * 60, close: 15 * 60 }    // Saturday
+];
+
+const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+const formatTime = (mins) => {
+  const hours = Math.floor(mins / 60);
+  const minutes = String(mins % 60).padStart(2, '0');
+  return `${String(hours).padStart(2, '0')}:${minutes}`;
+};
+
 const updateOpenStatus = () => {
   if (!openStatus || !locationStatus || !openDot) return;
   const now = new Date();
-  const openHour = 7;
-  const closeHour = 21;
-  const isOpen = now.getHours() >= openHour && now.getHours() < closeHour;
+  const day = now.getDay();
+  const today = weeklyHours[day];
+  const nowMinutes = now.getHours() * 60 + now.getMinutes();
+  const isOpen = nowMinutes >= today.open && nowMinutes < today.close;
   locationStatus.classList.toggle('is-closed', !isOpen);
-  openStatus.textContent = isOpen ? 'Open now - closes 9pm' : 'Closed - opens 7am';
+
+  if (isOpen) {
+    openStatus.textContent = `Open now - closes ${formatTime(today.close)}`;
+  } else {
+    let nextDay = day;
+    let nextOpen = today.open;
+    if (nowMinutes >= today.close) {
+      for (let i = 1; i <= 7; i += 1) {
+        const candidate = (day + i) % 7;
+        if (weeklyHours[candidate]) {
+          nextDay = candidate;
+          nextOpen = weeklyHours[candidate].open;
+          break;
+        }
+      }
+    }
+    const dayLabel = nextDay === day ? 'today' : dayNames[nextDay];
+    openStatus.textContent = `Closed - opens ${dayLabel} ${formatTime(nextOpen)}`;
+  }
+
+  const statusSub = locationStatus.querySelector('.status-sub');
+  if (statusSub) {
+    statusSub.textContent = 'Mon-Fri 07:00-17:30 | Sat 07:00-15:00 | Sun 08:00-14:00';
+  }
 };
 
 updateOpenStatus();
@@ -258,7 +300,11 @@ function appendMessage(text, who = 'bot'){
 function openChat(){
   chatPanel.setAttribute('aria-hidden','false');
   chatToggle.setAttribute('aria-expanded','true');
-  chatPanel.focus();
+  if (chatInput) {
+    chatInput.focus();
+  } else {
+    chatPanel.focus();
+  }
   // greet
   setTimeout(() => appendMessage('Hi! I can help with hours, quick pricing estimates, or booking. Try: "Hours" or "Pricing estimate".'), 250);
 }
@@ -289,12 +335,12 @@ function handleUserMessage(raw){
   const lower = String(raw).toLowerCase().trim();
 
   if (lower === 'hours' || lower.includes('hour')) {
-    appendMessage('We are open daily 07:00-21:00. Drop-offs accepted during opening hours.');
+    appendMessage('Hours: Mon-Fri 07:00-17:30, Sat 07:00-15:00, Sun 08:00-14:00. Drop-offs accepted during opening hours.');
     return;
   }
 
   if(lower === 'contact' || lower.includes('contact')){
-    appendMessage('You can call us at +27 63 696 1201 or WhatsApp via the site.');
+    appendMessage('You can call us at +27 63 302 8521 or WhatsApp via the site.');
     return;
   }
 
